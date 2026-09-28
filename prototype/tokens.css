@@ -1,0 +1,164 @@
+/* Zaapi app design tokens: extracted from app.zaapi.com on 25 Sep 2026.
+   Source: the app's own Tailwind v4 theme variables (:root) plus computed styles
+   sampled on Knowledge source, Add-source drawer, Scenario handling, Test chat,
+   Deploy, Settings > Integrations and Flow Builder.
+   "inferred" = not directly measured; derived from the palette and a screenshot. */
+
+:root {
+  /* ---- Root scale: the app sets html font-size to 14px, so every rem is 14px ---- */
+  font-size: 14px;
+
+  /* ---- Typography ---- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --text-2xs: 10.5px;   /* .75rem  — small labels */
+  --text-pill: 12px;    /* status pills */
+  --text-sm: 12.25px;   /* .875rem — the default UI text size */
+  --text-base: 14px;    /* 1rem    — section titles, sidebar heading */
+  --text-lg: 15.75px;   /* 1.125rem — drawer titles */
+  --text-xl: 17.5px;    /* 1.25rem — settings page titles */
+  --text-2xl: 21px;     /* 1.5rem  — page H1 */
+  --leading-sm: 17.5px;
+  --leading-base: 21px;
+  --leading-2xl: 28px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* ---- Neutrals (Untitled UI grey) ---- */
+  --gray-50: #f9fafb;   /* app shell, drawer background */
+  --gray-100: #f2f4f7;  /* customer chat bubble, Draft pill */
+  --gray-200: #eaecf0;  /* default border, switch off */
+  --gray-300: #d0d5dd;  /* focus ring, radio border */
+  --gray-400: #98a2b3;  /* muted text, "Show thinking" */
+  --gray-500: #667085;  /* secondary text, helper links */
+  --gray-600: #475467;  /* active nav text */
+  --gray-700: #344054;  /* table header text (measured) */
+  --gray-800: #1d2939;  /* primary text */
+  --gray-900: #101828;
+  --slate-500: #64748b; /* inactive side-menu text */
+  --nav-active-bg: #edeff4;
+  --content-bg: #fefeff;
+  --white: #ffffff;
+
+  /* ---- Brand ---- */
+  --brand-500: #09c8ab; /* "electric-green": switch on, radio selected, checked box */
+  --brand-600: #00a892; /* flow trigger node title, focus accents */
+  --brand-700: #008a77; /* start of AI text gradient */
+  --brand-50: #e8fffc;
+  --ai-gradient: linear-gradient(93.88deg, #1ed1bb 1.46%, #5e40e1 143.22%);       /* primary buttons, switch-on fill */
+  --ai-gradient-light: linear-gradient(93.88deg, #1ed1bb1a 1.46%, #5e40e11a 143.22%); /* AI bubble, icon tiles, info banner */
+  --ai-gradient-text: linear-gradient(to right, #008a77, #875bf7);                 /* AI reply text, "Escalated by AI Agent" */
+  --dark-gradient: linear-gradient(79deg, #1d2939 50.01%, #52729f 101.43%);        /* "Subscribe now" */
+  --indigo-600: #444ce7; /* flow action node titles */
+  --purple-600: #9810fa; /* links inside the AI info banner (≈ measured lab colour) */
+
+  /* ---- Status ---- */
+  --success-bg: #edfcf2;  --success-fg: #099250;   /* Completed, Enabled (measured) */
+  --neutral-pill-bg: #f2f4f7; --neutral-pill-fg: #667085; /* Draft (measured) */
+  --error-500: #f04438;   /* error border + helper text (measured) */
+  --error-600: #d92d20;
+  --error-bg: #fef3f2;    /* Failed pill background (inferred) */
+  --warning-500: #f79009;
+  --warning-bg: #fffaeb;  /* Pending pill (inferred) */
+
+  /* ---- Radius ---- */
+  --radius-xs: 3.5px;   /* checkbox (inferred), small chips */
+  --radius-md: 5.25px;  /* inputs, nav items, icon buttons */
+  --radius-lg: 7px;     /* buttons, cards, drawer, panels */
+  --radius-xl: 10.5px;  /* chat bubbles, dropzone, channel cards */
+  --radius-2xl: 14px;   /* status pills */
+  --radius-full: 9999px;/* switches, radios */
+
+  /* ---- Spacing (Tailwind spacing = .25rem = 3.5px) ---- */
+  --space-1: 3.5px; --space-2: 7px; --space-3: 10.5px; --space-4: 14px;
+  --space-5: 17.5px; --space-6: 21px; --space-8: 28px;
+
+  /* ---- Elevation ---- */
+  --shadow-drawer: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+  --overlay: rgb(0 0 0 / .5);
+  --focus-ring: 0 0 0 1px var(--gray-300);
+
+  /* ---- Layout ---- */
+  --banner-height: 52px;       /* trial banner */
+  --icon-rail-width: 56px;     /* left icon nav */
+  --side-menu-width: 240px;    /* secondary nav (items 219px wide) */
+  --content-margin: 8px;
+  --drawer-width: 800px;
+  --min-content-width: 850px;  /* desktop-only app */
+  --max-content-width: 1400px;
+  --control-height: 32px;      /* buttons, filters, icon buttons */
+  --input-height: 35px;
+  --table-header-height: 48px;
+}
+
+/* ---------- Base components ---------- */
+
+body { margin: 0; font-family: var(--font-sans); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--gray-800); background: var(--gray-50); }
+
+.page-title { font-size: var(--text-2xl); line-height: var(--leading-2xl); font-weight: var(--weight-medium); color: #000; margin: 0; }
+.page-desc  { font-size: var(--text-sm); color: var(--gray-500); }
+.drawer-title { font-size: var(--text-lg); font-weight: var(--weight-semibold); color: var(--gray-800); }
+.section-title { font-size: var(--text-base); font-weight: var(--weight-medium); color: #000; }
+.label { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--gray-800); }
+.helper { font-size: var(--text-sm); color: var(--gray-500); }
+
+.btn { height: var(--control-height); padding: 0 var(--space-4); border-radius: var(--radius-lg); font: inherit; font-size: var(--text-sm); display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; border: 0; }
+.btn-primary { background: var(--ai-gradient); color: #fff; }
+.btn-secondary { background: #fff; color: var(--gray-800); border: 1px solid var(--gray-200); }
+.btn-dark { background: var(--gray-800); color: #fff; border-radius: var(--radius-md); height: 28px; padding: 0 var(--space-3); } /* Publish */
+.btn-upsell { background: var(--dark-gradient); color: #fff; border-radius: var(--radius-md); height: 28px; padding: 0 var(--space-3); } /* Subscribe now */
+.btn-icon { width: 32px; height: 32px; padding: 0; justify-content: center; border-radius: var(--radius-md); background: transparent; }
+.link { color: var(--gray-500); text-decoration: underline; }
+
+.input { height: var(--input-height); padding: var(--space-2) var(--space-3); border: 1px solid var(--gray-200); border-radius: var(--radius-md); background: #fff; font: inherit; font-size: var(--text-sm); color: #000; width: 100%; box-sizing: border-box; }
+.input:focus { outline: none; box-shadow: var(--focus-ring); }
+.input.is-error { border-color: var(--error-500); }
+.error-text { color: var(--error-500); font-size: var(--text-sm); }
+.counter { color: var(--gray-400); font-size: var(--text-sm); text-align: right; }
+
+.switch { width: 42px; height: 25px; border-radius: var(--radius-full); background: var(--gray-200); position: relative; border: 0; }
+.switch[aria-checked="true"] { background: var(--brand-500) var(--ai-gradient); }
+.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 19px; height: 19px; border-radius: 50%; background: #fff; transition: transform .15s; }
+.switch[aria-checked="true"]::after { transform: translateX(17px); }
+
+.radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--gray-300); box-sizing: border-box; }
+.radio.is-checked { border-color: var(--brand-500); box-shadow: inset 0 0 0 3px #fff; background: var(--brand-500); }
+.radio-card { border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-3); background: #fff; }
+.radio-card.is-checked { border-color: var(--brand-500); }
+.checkbox { width: 18px; height: 18px; border-radius: var(--radius-xs); border: 1px solid var(--gray-300); background: #fff; }
+.checkbox.is-checked { background: var(--brand-500); border-color: var(--brand-500); }
+
+.pill { display: inline-flex; align-items: center; font-size: var(--text-pill); font-weight: var(--weight-medium); padding: 1.75px var(--space-2); border-radius: var(--radius-2xl); }
+.pill-success { background: var(--success-bg); color: var(--success-fg); }
+.pill-neutral { background: var(--neutral-pill-bg); color: var(--neutral-pill-fg); }
+.pill-error { background: var(--error-bg); color: var(--error-600); }
+.pill-warning { background: var(--warning-bg); color: #b54708; }
+
+.card { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-4) var(--space-5); }
+.panel { background: #fff; border-radius: var(--radius-lg); padding: var(--space-4); }  /* white section inside a drawer */
+.icon-tile { width: 70px; height: 70px; border-radius: var(--radius-lg); background: var(--ai-gradient-light); display: grid; place-items: center; }
+.dropzone { border: 1px dashed var(--gray-300); border-radius: var(--radius-xl); padding: var(--space-6); text-align: center; }
+.dropzone.is-error { border-color: var(--error-500); }
+
+.table { width: 100%; border-collapse: collapse; background: #fff; }
+.table th { height: var(--table-header-height); text-align: left; font-weight: var(--weight-medium); color: var(--gray-700); padding: 5.25px var(--space-3); border-bottom: 1px solid var(--gray-200); }
+.table td { padding: var(--space-3); border-bottom: 1px solid var(--gray-200); }
+
+.drawer-overlay { position: fixed; inset: 0; background: var(--overlay); }
+.drawer { position: fixed; top: var(--space-2); right: var(--space-2); bottom: var(--space-2); width: var(--drawer-width); background: var(--gray-50); border-radius: var(--radius-lg); box-shadow: var(--shadow-drawer); padding: var(--space-5) var(--space-6); overflow: auto; }
+
+.side-menu { width: var(--side-menu-width); padding: var(--space-3); }
+.side-menu .group { font-size: var(--text-2xs); font-weight: var(--weight-medium); color: var(--slate-500); margin: var(--space-4) 0 var(--space-1); }
+.side-menu a { display: flex; align-items: center; height: 32px; padding: 0 var(--space-3); border-radius: var(--radius-md); color: var(--slate-500); text-decoration: none; }
+.side-menu a.is-active { background: var(--nav-active-bg); color: var(--gray-600); font-weight: var(--weight-medium); }
+.icon-rail { width: var(--icon-rail-width); background: var(--gray-50); border-right: 1px solid var(--gray-200); }
+
+.trial-banner { height: var(--banner-height); display: flex; align-items: center; justify-content: center; gap: var(--space-3); background: #fff; font-size: var(--text-base); }
+.ai-banner { background: var(--ai-gradient-light); border-left: 3px solid var(--brand-500); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); } /* border width inferred */
+
+.bubble { max-width: 520px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-xl); font-size: var(--text-sm); line-height: var(--leading-sm); }
+.bubble-customer { background: var(--gray-100); color: var(--gray-800); }
+.bubble-ai { background: var(--ai-gradient-light); }
+.bubble-ai p, .ai-text { background: var(--ai-gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.show-thinking { color: var(--gray-400); font-size: var(--text-sm); }
+.composer { min-height: 98px; border: 1px solid var(--gray-200); border-radius: var(--radius-md); background: rgb(255 255 255 / .8); padding: var(--space-2) 35px var(--space-2) var(--space-3); }

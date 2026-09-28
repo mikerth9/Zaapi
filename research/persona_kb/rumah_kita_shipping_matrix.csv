@@ -1,0 +1,7 @@
+Region,States,Item type,Rate,Lead time (working days),Courier,Notes
+West Malaysia,All Peninsular states,Standard (up to 3 kg),RM8,2-4,J&T,Free above RM150
+West Malaysia,All Peninsular states,Standard (each extra kg),RM2,2-4,J&T,
+West Malaysia,All Peninsular states,"Bulky (storage racks, 3-seater sofa cover sets, rugs over 2 m)",RM35 flat,5-8,Line Clear,
+East Malaysia,"Sabah, Sarawak, Labuan",Standard (up to 3 kg),RM18,5-7,J&T,
+East Malaysia,"Sabah, Sarawak, Labuan",Standard (each extra kg),RM6,5-7,J&T,
+East Malaysia,"Sabah, Sarawak, Labuan",Bulky,,,,ask Farah

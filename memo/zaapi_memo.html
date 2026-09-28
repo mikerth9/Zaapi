@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI Agent Activation Memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #1d2939; --muted: #475467; --line: #e4e7ec; --soft: #f5f7fa;
+    --teal: #1ed1bb; --purple: #5e40e1; --tealdark: #0f8f80; --lav: #efebfd;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: Inter, "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 8pt; line-height: 1.32; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; padding: 8mm 11.5mm 7mm; break-after: page; position: relative; }
+  .page:last-child { break-after: auto; }
+  .bar { height: 3px; background: linear-gradient(94deg, var(--teal), var(--purple)); border-radius: 2px; margin-bottom: 3.5mm; }
+  header h1 { font-size: 15pt; line-height: 1.15; margin: 0 0 1mm; letter-spacing: -0.2px; }
+  header .meta { color: var(--muted); font-size: 7.8pt; margin-bottom: 1.2mm; }
+  h2 { font-size: 9.8pt; margin: 2.3mm 0 1mm; display: flex; align-items: baseline; gap: 2mm; }
+  h2 .n { color: #fff; background: linear-gradient(94deg, var(--teal), var(--purple)); border-radius: 3px; font-size: 7.5pt; padding: 0.3mm 1.6mm; }
+  p { margin: 0 0 1.4mm; }
+  .rc { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5mm; margin: 1.2mm 0; }
+  .rc > div { border: 1px solid var(--line); border-radius: 5px; padding: 1.4mm 2mm; }
+  .rc h3 { font-size: 8.3pt; margin: 0 0 0.5mm; }
+  .rc h3 span { color: var(--purple); margin-right: 1mm; }
+  .rc p { margin: 0; }
+  .rc .sym { color: var(--tealdark); font-weight: 500; }
+  .method { background: var(--soft); border-radius: 5px; padding: 1.6mm 2.2mm; margin: 1mm 0 1.4mm; }
+  .personas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5mm; margin: 0 0 1mm; }
+  .card { border: 1px solid var(--line); border-radius: 5px; padding: 1.5mm; }
+  .card .top { display: flex; gap: 1.8mm; align-items: flex-start; margin: 0; }
+  .card img { width: 10mm; height: 10mm; border-radius: 50%; object-fit: cover; flex: none; }
+  .card .who b { display: block; font-size: 8.3pt; }
+  .card .who > span { display: block; color: var(--muted); font-size: 7pt; line-height: 1.25; }
+  .who .score { display: inline-block !important; margin-left: 1mm; vertical-align: 1px; }
+  .score { display: inline-block; font-weight: 700; font-size: 7.4pt; color: #fff; background: var(--purple); border-radius: 3px; padding: 0.2mm 1.4mm; margin-top: 0; }
+  .score small { font-weight: 500; opacity: .85; }
+  .card p { font-size: 7.6pt; margin: 0; line-height: 1.3; }
+  .find { border-left: 3px solid var(--teal); padding: 0.4mm 0 0.4mm 2.4mm; margin: 1.2mm 0 0; }
+  .headline { font-size: 8.6pt; font-weight: 600; margin: 0 0 1.4mm; }
+  .rail { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1mm; position: relative; margin: 0 0 1.2mm; }
+  .rail::before { content: ""; position: absolute; left: 6%; right: 6%; top: 3.1mm; height: 2px; background: linear-gradient(90deg, var(--teal), var(--purple)); z-index: 0; }
+  .step { text-align: center; position: relative; z-index: 1; }
+  .step .dot { width: 6.2mm; height: 6.2mm; border-radius: 50%; background: #fff; border: 2px solid var(--purple); color: var(--purple); font-weight: 700; font-size: 7.6pt; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.8mm; }
+  .step.key .dot { background: var(--purple); color: #fff; }
+  .step .lbl { font-size: 7.2pt; font-weight: 600; line-height: 1.2; }
+  .step .tag { display: inline-block; margin-top: 0.6mm; font-size: 6.4pt; color: var(--tealdark); background: #e6faf7; border-radius: 3px; padding: 0.1mm 1mm; line-height: 1.3; }
+  table { width: 100%; border-collapse: collapse; margin: 1mm 0 1.4mm; }
+  th { text-align: left; font-size: 7.4pt; color: var(--muted); font-weight: 600; border-bottom: 1.5px solid var(--ink); padding: 0.9mm 1.6mm; }
+  td { vertical-align: top; padding: 1.2mm 1.6mm; border-bottom: 1px solid var(--line); }
+  .chg td:first-child { width: 40mm; font-weight: 600; }
+  .chg td:first-child span { color: var(--purple); margin-right: 1.2mm; }
+    .chg td:nth-child(3) b { font-weight: 600; }
+  .tiers { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 1.5mm; margin: 0.4mm 0 1mm; }
+  .tiers div { background: var(--lav); border-radius: 4px; padding: 1mm 1.6mm; font-size: 7.3pt; line-height: 1.27; }
+  .tiers b { color: var(--purple); }
+  .small { font-size: 7.6pt; color: var(--muted); margin: 0; }
+  .plan td:first-child { font-weight: 600; white-space: nowrap; }
+  .why { color: var(--muted); }
+  .box { border: 1px solid var(--line); border-radius: 5px; padding: 1.6mm 2.6mm; margin: 1.1mm 0; }
+  .box.wrong { border-color: #f5c9a8; background: #fffaf5; }
+  .box h3 { font-size: 8.3pt; margin: 0 0 1mm; }
+  .box ul { margin: 0; padding-left: 4mm; }
+  .box li { margin-bottom: 0.7mm; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4mm; }
+  .foot { position: absolute; left: 12mm; right: 12mm; bottom: 5mm; border-top: 1px solid var(--line); padding-top: 1.4mm; font-size: 6.6pt; color: var(--muted); line-height: 1.35; }
+  .pn { position: absolute; right: 12mm; top: 5mm; font-size: 6.8pt; color: var(--muted); }
+
+  .personas { grid-template-columns: repeat(3, 1fr) !important; }
+  .card img { width: 9mm !important; height: 9mm !important; }
+  .card .who > span { font-size: 6.9pt; }
+  .card p { font-size: 7.4pt; margin-top: 0.5mm !important; }
+  .pack { background: var(--lav); border-radius: 5px; padding: 1.8mm 2.6mm; margin: 0 0 1.6mm; }
+  .pack h3 { font-size: 8.3pt; margin: 0 0 1mm; color: var(--ink); }
+  .pack .tiers { margin: 0 0 1mm; }
+  .pack .tiers div { background: #fff; }
+  .pack p { margin: 0; font-size: 7.6pt; }
+  .src { color: var(--muted); }
+  .st { display: inline-block; font-size: 6.6pt; font-weight: 600; border-radius: 3px; padding: 0 1.2mm; margin-right: 0.6mm; }
+  .st.no { background: #eef0f4; color: #475467; }
+  .st.off { background: #fdecea; color: #b42318; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page" style="padding-bottom:4mm">
+  <div class="pn">1 / 2</div>
+  <div class="bar"></div>
+  <header>
+    <h1>Getting merchants live on the AI Agent, and keeping them live</h1>
+    <div class="meta">Memo · Mike Rourke · Head of Product take-home, Zaapi · 28 September 2026</div>
+  </header>
+
+  <h2><span class="n">1</span> The problem</h2>
+  <p>Of every 100 merchants who start setting up the AI Agent, 61 get it live, a median of <b>19 days</b> after signup. Nine switch it off again, most within 72 hours, so <b>52 are still live after a month</b>. The agent itself is capable: with complete knowledge it answered 10 of 10 test messages correctly in English, Thai and Bahasa. But setup produces weak agents for most merchants, and hides it from them.</p>
+
+  <h2><span class="n">2</span> What's going wrong</h2>
+  <p>Setup asks a small business to write its own AI agent from scratch, gives it no reliable way to check the result, and then only lets it switch the agent on for everything. In effect, merchants do alone what Zaapi's team does by hand in the $1,900 AI Success Kit. Each of the six merchant quotes in the brief traces to one of four causes.</p>
+  <div class="rc">
+    <div>
+      <h3><span>1</span>No clear path in</h3>
+      <p>You land in the inbox, and onboarding doesn't mention the AI Agent. A pre-connected widget makes merchants look connected. Setup is tabs with no order or progress. <span class="sym">→ 4 days before any setup step; 21 of 100 never add knowledge. Jakarta: “sitting there since November.”</span></p>
+    </div>
+    <div>
+      <h3><span>2</span>Write it all, can't see it</h3>
+      <p>Policies often aren't written down, and nothing suggests scenarios. A 12-page Thai PDF showed “Completed” with half of it read. Jargon and mixed-language screens add to it. <span class="sym">→ Only 38 of 100 write a scenario (66 test). Manila: “Nobody has written them down.” Chiang Mai: “I'm not sure whether that matters.”</span></p>
+    </div>
+    <div>
+      <h3><span>3</span>No real way to test</h3>
+      <p>Test mode is one typed message at a time, with no coverage view. Answers vary run to run, and the built-in check once passed a stale shipping rate as “accurate”. <span class="sym">→ Bangkok: “How do I know it's ready?” Kuala Lumpur: live Friday, off Saturday.</span></p>
+    </div>
+    <div>
+      <h3><span>4</span>All or nothing, no orders</h3>
+      <p>Both go-live routes open Flow Builder, a Pro feature. No way to limit topics, approve replies first or cap spend. The agent can't see orders, so it says “I'm checking” and the customer waits. <span class="sym">→ 19-day median; 72-hour switch-offs. Ho Chi Minh City: “it'll pass them to the team. Which is us.”</span></p>
+    </div>
+  </div>
+
+  <h2><span class="n">3</span> What I tested</h2>
+  <div class="method">Six personas from the six quotes, built in Perplexity. Claude Code set each one's agent up in Zaapi with only the knowledge that merchant would have, and ran about 50 test questions in the customers' own languages while I watched. No real customers. Each score is how well that agent met its merchant's own go-live bar: 100 means every answer right, safe and in their voice.</div>
+    <div class="personas">
+    <div class="card">
+      <div class="top"><img src="https://images.unsplash.com/photo-1695757002354-8bca71d087c7?w=160&h=160&fit=crop&crop=faces" alt="Nattaya">
+        <div class="who"><b>Nattaya <span class="score">89</span></b><span>Beauty, Bangkok · LINE</span><p><span class="st no">Didn't launch</span> Half her FAQ PDF went unread, and nothing showed her whether the agent was ready.</p></div></div>
+    </div>
+    <div class="card">
+      <div class="top"><img src="https://images.unsplash.com/photo-1634552516330-ab1ccc0f605e?w=160&h=160&fit=crop&crop=faces" alt="Pranee">
+        <div class="who"><b>Pranee &amp; Fon <span class="score">85</span></b><span>Supplements, Chiang Mai · LINE</span><p><span class="st no">Didn't launch</span> Replied in Thai, but slipped into male forms. Nothing told her the language was fine.</p></div></div>
+    </div>
+    <div class="card">
+      <div class="top"><img src="https://images.unsplash.com/photo-1595986630530-969786b19b4d?w=160&h=160&fit=crop&crop=faces" alt="Jo">
+        <div class="who"><b>Jo <span class="score">77</span></b><span>Fashion, Manila · Instagram</span><p><span class="st no">Didn't launch</span> Her cancel rule was only in her head. Written down (one minute), the agent scored 92.</p></div></div>
+    </div>
+    <div class="card">
+      <div class="top"><img src="https://images.unsplash.com/photo-1662103629396-a08922b5d6e6?w=160&h=160&fit=crop&crop=faces" alt="Budi">
+        <div class="who"><b>Budi <span class="score">68</span></b><span>Electronics, Jakarta · Shopee</span><p><span class="st no">Didn't launch</span> Lost to Double 11. His “ready stok” (in stock) reply claimed stock in 4 of 5 test runs.</p></div></div>
+    </div>
+    <div class="card">
+      <div class="top"><img src="https://images.unsplash.com/photo-1664764731538-69a2b571e5a6?w=160&h=160&fit=crop&crop=faces" alt="Aisha">
+        <div class="who"><b>Aisha <span class="score">70</span></b><span>Home goods, Kuala Lumpur · WhatsApp</span><p><span class="st off">Went live, then off</span> A stale RM15 shipping rate went to East Malaysia in 3 of 6 runs.</p></div></div>
+    </div>
+    <div class="card">
+      <div class="top"><img src="https://images.unsplash.com/photo-1775794180653-89531816708f?w=160&h=160&fit=crop&crop=faces" alt="Linh">
+        <div class="who"><b>Linh <span class="score">53</span></b><span>Fashion, Ho Chi Minh City · Facebook</span><p><span class="st off">Went live, then off</span> It said “I'm checking your order” to customers, but it can't see orders.</p></div></div>
+    </div>
+  </div>
+  <p class="find"><b>Agent quality and launch decisions didn't line up.</b> The best agent (89) never launched because its owner couldn't see it was good; the weakest (53) went live because nothing warned her. Every agent was safe, but made mistakes merchants wouldn't spot.</p>
+
+  <h2><span class="n">4</span> What I'd change</h2>
+  <p class="headline">The main change: Zaapi drafts the agent from what the merchant already has, and shows them whether it's ready before any customer sees it. Everything else supports that.</p>
+  <div class="rail">
+    <div class="step"><div class="dot">1</div><div class="lbl">Connect your chats</div></div>
+    <div class="step key"><div class="dot">2</div><div class="lbl">Check what it knows</div><span class="tag">Drafted by Zaapi</span></div>
+    <div class="step key"><div class="dot">3</div><div class="lbl">Check what it does</div><span class="tag">Drafted by Zaapi</span></div>
+    <div class="step"><div class="dot">4</div><div class="lbl">Choose how it sounds</div><span class="tag">Voice fields</span></div>
+    <div class="step key"><div class="dot">5</div><div class="lbl">See if it's ready</div><span class="tag">Readiness score</span></div>
+    <div class="step key"><div class="dot">6</div><div class="lbl">Go live small</div><span class="tag">Start small</span></div>
+    <div class="step"><div class="dot">7</div><div class="lbl">First week live</div><span class="tag">Stay live</span></div>
+  </div>
+  <table class="chg">
+    <thead><tr><th>Cause</th><th>What changes</th></tr></thead>
+    <tbody>
+      <tr><td><span>1</span>No clear path in</td><td><b>A setup home with the 7-step tracker:</b> the first screen after login until setup is done, then the dashboard, with a small tracker elsewhere. Step 1 asks for the channels customers use, not the default widget. Plain wording throughout.</td></tr>
+      <tr><td><span>2</span>Write it all, can't see it</td><td><b>Zaapi drafts the knowledge, scenarios and tone</b> from past chats (with permission), website and listings, and <b>shows what it read from each file</b>, with warnings for anything missed. Conflicts are flagged; tone and language are simple choices, not free text.</td></tr>
+      <tr><td><span>3</span>No real way to test</td><td><b>A readiness score</b> replays real past questions, three times each with rewordings, and shows what it answers, hands off or gets wrong. No history? A standard set of hard cases for their category.</td></tr>
+      <tr><td><span>4</span>All or nothing, no orders</td><td><b>A go-live screen on every plan, outside Flow Builder:</b> channel, hours, topics, “I approve replies first”, spend cap, who gets each handoff, and a human fallback. <b>Read-only order status</b>, so it can answer “where's my order”. A check on every reply turns “I'm checking” into a handoff.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+  <div class="pn">2 / 2</div>
+  <div class="bar"></div>
+
+  <div class="pack">
+    <h3>4 (continued): free for everyone, paid for depth</h3>
+    <div class="tiers">
+      <div><b>Under 300 chats a month:</b> all history used, main topics drafted. Basic plan included.</div>
+      <div><b>300+ a month (the Kit's own eligibility line):</b> top topics drafted; the rest listed to build themselves or upgrade.</div>
+      <div><b>No chat history:</b> guided questions, plus a scan of their website and listings.</div>
+    </div>
+    <p>The free setup gets everyone live and safe; the Kit is the upgrade for depth, and includes a one-month LINE Chat package export (฿555) to bring in LINE history that the API can't reach. WhatsApp's 180 days of history is accepted at connection. Also: re-authorisation reminders, fixing a wrong answer from the answer itself, a free-message alert, and sale-period prompts.</p>
+  </div>
+
+  <h2 style="margin-top:0"><span class="n">5</span> What I'd do first, and why in that order</h2>
+  <table class="plan">
+    <thead><tr><th style="width:22mm">When</th><th>What</th><th style="width:54mm">Why then</th></tr></thead>
+    <tbody>
+      <tr><td>Now · weeks 0–2</td><td>Data that could reorder this: switch-offs vs free messages running out, setup time vs days elapsed, go-live by plan and sign-up timing, lapsed connections, Kit vs self-serve, how Basic goes live. Then add connection-expiry reminders.</td><td class="why">Quick, and it tells me whether launch or setup is the bigger problem.</td></tr>
+      <tr><td>Next · weeks 2–6</td><td>Tracker (steps 2, 3 and 5 follow in weeks 6–12) and plain wording; go-live screen with handoff controls; the reply check; sale-period support before 11.11; <b>WhatsApp's 180-day history at connection</b>.</td><td class="why">Small builds for the 4-day start and 72-hour switch-offs. Without the import, new WhatsApp merchants lose their history for good.</td></tr>
+      <tr><td>Then · weeks 6–12</td><td>Drafting from history, “what it read” and the readiness score, with the tiers. <b>Read-only order status.</b> Start on Shopee, where chats and orders are already synced.</td><td class="why">The biggest lever, and order status is the only fix for Ho Chi Minh City. Consent and platform terms first.</td></tr>
+      <tr><td>Later</td><td>Cancel and refund actions, starting as a one-click button for staff inside the handoff.</td><td class="why">Depends on each platform's API, and sits on the Advanced plan today.</td></tr>
+    </tbody>
+  </table>
+  <p>Two results would change this order. If switch-offs line up with credits running out, pricing and the trial come first. If Kit customers stay live far more often than self-serve ones, drafting comes forward. The order matters more than the dates, which assume the current team.</p>
+
+  <div class="box">
+    <h3>What I'd deliberately not do</h3>
+    <ul>
+      <li><b>Rebuild Flow Builder, or add an AI flow designer, first.</b> Both go-live routes open Flow Builder <span class="src">(Deploy page)</span>, which Basic doesn't have <span class="src">(pricing page)</span>. A go-live screen outside it works on every plan.</li>
+      <li><b>Add a percentage slider.</b> Aisha wants a small start, but a random 10% still sends the agent the risky questions. Staging by channel, hours and topic keeps them out. Of six competitors, only Intercom (voice) and Zendesk (A/B tests) split by percentage <span class="src">(competitor review)</span>.</li>
+      <li><b>Make scenarios compulsory.</b> The brief links scenarios to staying live, but careful merchants may just do both. Linh's scenario fired 3 of 3 times and resolved none without order data <span class="src">(persona tests)</span>.</li>
+      <li><b>Build cancel and refund actions first.</b> They're Advanced-only <span class="src">(pricing page)</span>, and each marketplace API has its own rules <span class="src">(platform docs)</span>. Read-only status answers the most common question sooner.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">6</span> How I'd know it worked</h2>
+  <table class="plan">
+    <thead><tr><th style="width:24mm">Measure</th><th>What</th><th style="width:50mm">Now → first target</th></tr></thead>
+    <tbody>
+      <tr><td>Headline</td><td>Share of new sign-ups live by day 7 <b>and</b> still live at day 30.</td><td>Est. 10–15 of 100 (to confirm) → 30+</td></tr>
+      <tr><td>Value</td><td>Share of enquiries the AI resolves with no human, on the channels where it's live.</td><td>Not known → 15%+ in the first 30 days; 30% (the Kit's bar) by day 90</td></tr>
+      <tr><td>Early signs</td><td>First AI step on day 0; tracker progress; share of the draft kept; readiness at launch; how many start small.</td><td>Weekly, from launch</td></tr>
+      <tr><td>Commercial</td><td>Upgrade prompts that lead to a Kit or plan purchase; Kit sales; AI revenue per live merchant. Renewal value sized once we have renewal rates by activation group.</td><td>Kit sales flat or up</td></tr>
+      <tr><td>Guardrails</td><td>Wrong answers (weekly sample review); handoffs; 72-hour switch-offs; lapsed connections; promo mistakes in sales.</td><td>No worse than the holdout group</td></tr>
+    </tbody>
+  </table>
+  <p>I'd roll each change out to new sign-ups with a holdout group, so a busy sale month doesn't skew the results.</p>
+
+  <div class="box wrong">
+    <h3>What would tell me I was wrong</h3>
+    <div class="two">
+      <ul>
+        <li><b>Merchants who accept a draft don't go live any faster.</b> Then writing isn't the blocker.</li>
+        <li><b>The readiness score doesn't predict who stays live.</b> Then replaying old chats isn't a good enough test.</li>
+        <li><b>Merchants who start small switch off as often as those who launch everything.</b> Then risk isn't the reason.</li>
+      </ul>
+      <ul>
+        <li><b>Switch-offs line up with free messages running out.</b> Then it's about price, and the trial and credits need fixing first.</li>
+        <li><b>Kit sales drop.</b> Then the free version gives too much away, and the topic cap needs tightening.</li>
+        <li><b>Sale-period sign-ups still don't activate.</b> Then timing matters more than setup, and marketing needs to start earlier.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">
+    <b>Sources.</b> Walkthroughs of app.zaapi.com (25–26 Sep 2026), Zaapi's help, pricing and AI services pages, and platform docs. Detail in Appendices A–D and the prompt list, available on request. One tester, no live traffic, so treat scores as a guide; funnel figures are from the brief. All six quotes come from accounts the commercial team deals with (800–9,000 orders a month): no successes or very small merchants. <b>Prototype:</b> a working setup flow for all six merchants; step 5, “See if it's ready”, is the core screen. <b>Photos:</b> Unsplash (Dynamic Wang, Maud Beauregard, Ghen Mar Cuaño, Muhammad Rizqi, Rendy Novantino, Elist Nguyen), for illustration only.
+  </div>
+</section>
+</body>
+</html>

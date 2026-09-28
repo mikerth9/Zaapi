@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Working files, not part of the submission
+CLAUDE.md
+00_plan.md
+QA_report.md
+fresh_laundry_kb.md
+memo/memo_draft_v2_backup.html
+memo/memo_draft_v1_25sep.pdf
+
+# Stitch exports that load Tailwind from a CDN, and the pre-fix originals
+prototype/stitch/html/
+prototype/stitch/original/
