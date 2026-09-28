@@ -10,7 +10,7 @@ This is my answer to Zaapi's take-home exercise. The brief is in `brief/`. It as
 |---|---|---|
 | **1. Memo** (2 pages) | [`memo/zaapi_memo.pdf`](memo/zaapi_memo.pdf) | HTML source alongside it. Sections: the problem, what's going wrong, what I tested, what I'd change, what I'd do first, how I'd know it worked. |
 | **2. Prototype** | [`prototype/zaapi_setup_prototype.html`](prototype/zaapi_setup_prototype.html) | A working setup flow, not wireframes. One self-contained file: download it and open it in a browser. [`prototype/README.md`](prototype/README.md) has a two-minute click path per merchant. |
-| **3. Prompts** | [`prompts/master_prompts.md`](prompts/master_prompts.md) | The 29 substantive prompts in order, each with what I wanted, the prompt as sent, and what I did with what came back. The raw working log with every short follow-up is [`prompts/prompt_log.md`](prompts/prompt_log.md). |
+| **3. Prompts** | [`prompts/master_prompts.md`](prompts/master_prompts.md) | The 28 substantive prompts in order, each with what I wanted, the prompt as sent, and what I did with what came back. The raw working log with every short follow-up is [`prompts/prompt_log.md`](prompts/prompt_log.md). |
 
 ## The short version
 

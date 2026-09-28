@@ -10,7 +10,7 @@ The brief asked for the prompts, so here they are in the order I used them. I've
 
 **Claude** (claude.ai, then Claude Code in the desktop app). The long jobs I'd otherwise not have had time for: a multi-hour browser walkthrough with a log, persona test runs against my trial account while I watched, synthesis across the folder, drafting the memo to my outline, and building the prototype. Sonnet 5 for the long browser session, Opus 5.5 for synthesis, writing and the build.
 
-**Perplexity.** Facts from outside that need current sources: marketplace platform rules, campaign calendars, competitor patterns, Zaapi's public positioning, the merchant personas, and an independent review of the memo draft.
+**Perplexity.** Facts from outside that need current sources: marketplace platform rules, campaign calendars, competitor patterns, Zaapi's public positioning and the merchant personas.
 
 **Google Stitch** (through its MCP connector). The screen designs the prototype was built from.
 
@@ -33,18 +33,17 @@ The brief asked for the prompts, so here they are in the order I used them. I've
 | 15 | Claude Opus 5.5 + Chrome | Draft memo to my outline | `memo/zaapi_memo.html` → PDF |
 | 16 | Claude Opus 5.5 | My first edit round: voice, method, visual "what I'd change" | memo v2 |
 | 17 | Claude Opus 5.5 + Chrome | My fact-check round: prove every product claim | memo v2, checked |
-| 18 | Perplexity | Independent review of the memo draft | `memo_review.md` |
-| 19 | Perplexity | Six personas, one per brief quote | `zaapi_personas_v2.md` |
-| 20 | Claude Opus 5.5 + Chrome | Persona testing v2, delta only | `research/persona_v2_test_log.md`, `research/persona_v2_exec_summary.md` |
-| 21 | Claude Opus 5.5 + Chrome | Act on the review and the v2 results: memo v3 | memo v3 |
-| 22 | Claude Opus 5.5 + Chrome | Prototype plan, context pack and build prompt | `prototype/context/`, `prompts/prototype_session_prompt.md` |
-| 23 | Claude Opus 5.5 | Aisha's conflict flow and the presenter sidebar | `prototype/context/07_sidebar_copy.md` |
-| 24 | Claude Opus 5.5 | Design brief for Google Stitch | `prototype/stitch/DESIGN.md` |
-| 25 | Claude Opus 5.5 + Stitch MCP | Screen designs from the brief | `prototype/stitch/*.png` |
-| 26 | Claude Opus 5.5 (Claude Code) | Prototype build | `prototype/zaapi_setup_prototype.html`, `prototype/README.md` |
-| 27 | Claude Opus 5.5 (Claude Code) | Prototype fixes after my check against the memo | prototype v2, `prototype/context/03_merchants.md` |
-| 28 | Claude Opus 5.5 | Final clarity sweep of the memo | memo, final |
-| 29 | Claude Fable 5.1 (Claude Code) | QA of every output, this file, and my last changes to the prototype | `QA_report.md`, this file |
+| 18 | Perplexity | Six personas, one per brief quote | `zaapi_personas_v2.md` |
+| 19 | Claude Opus 5.5 + Chrome | Persona testing v2, delta only | `research/persona_v2_test_log.md`, `research/persona_v2_exec_summary.md` |
+| 20 | Claude Opus 5.5 + Chrome | Act on the review and the v2 results: memo v3 | memo v3 |
+| 21 | Claude Opus 5.5 + Chrome | Prototype plan, context pack and build prompt | `prototype/context/`, `prompts/prototype_session_prompt.md` |
+| 22 | Claude Opus 5.5 | Aisha's conflict flow and the presenter sidebar | `prototype/context/07_sidebar_copy.md` |
+| 23 | Claude Opus 5.5 | Design brief for Google Stitch | `prototype/stitch/DESIGN.md` |
+| 24 | Claude Opus 5.5 + Stitch MCP | Screen designs from the brief | `prototype/stitch/*.png` |
+| 25 | Claude Opus 5.5 (Claude Code) | Prototype build | `prototype/zaapi_setup_prototype.html`, `prototype/README.md` |
+| 26 | Claude Opus 5.5 (Claude Code) | Prototype fixes after my check against the memo | prototype v2, `prototype/context/03_merchants.md` |
+| 27 | Claude Opus 5.5 | Final clarity sweep of the memo | memo, final |
+| 28 | Claude Fable 5.1 (Claude Code) | QA of every output, this file, and my last changes to the prototype | this file |
 
 Working-log numbers (01, 01b, PX-00 and so on) are kept in brackets in each heading so entries can be traced to `prompt_log.md`, the raw log of every interaction including the short ones.
 
@@ -629,17 +628,7 @@ anything you need evidence or to check do so through either the brief, the claud
 
 ---
 
-## 18 · Perplexity · Independent review of the memo draft
-
-**What I wanted:** a second opinion from a tool that hadn't written any of it, scored against the brief and the evidence in the folder, and told not to be kind.
-
-*Prompt to be pasted from Perplexity history before sending. It asked for a scored review of the memo PDF against the brief and the project folder: what's wrong, what's missing, what to change, what's working.*
-
-**What I did with it:** it scored the draft 7.5 out of 10 and listed eight things it thought were wrong and six missing. I took most of them (Aisha contradicted the Kuala Lumpur quote; the scenarios drop sat under the wrong cause; the headline target mixed two measures; the 30% target was borrowed from the Kit; a guardrail had no baseline), pushed back on one (I kept the case against a percentage slider but acknowledged Aisha's need for a small start) and dropped one on purpose (help-article fixes). Acted on in prompt 21. → `memo_review.md`
-
----
-
-## 19 · Perplexity · Six personas, one per brief quote
+## 18 · Perplexity · Six personas, one per brief quote
 
 **What I wanted:** the first four personas were archetypes. The brief has six real quotes, and I wanted the memo to trace each quote to a cause, so one persona per quote, with the category, order volume and city kept from the brief.
 
@@ -686,7 +675,7 @@ and note where things break.
 
 ---
 
-## 20 · Claude Opus 5.5 (Claude Code + Chrome) · Persona testing v2, six personas, delta only (log 14)
+## 19 · Claude Opus 5.5 (Claude Code + Chrome) · Persona testing v2, six personas, delta only (log 14)
 
 **What I wanted:** the v2 personas tested, but only the delta. The first round was already paid for and I didn't want it re-run.
 
@@ -698,7 +687,7 @@ please redo this with the personas_v2 - if any of the areas have already been co
 
 ---
 
-## 21 · Claude Opus 5.5 (Claude Code + Chrome) · Act on the review and the v2 results: memo v3 (logs 15 and 16)
+## 20 · Claude Opus 5.5 (Claude Code + Chrome) · Act on the review and the v2 results: memo v3 (logs 15 and 16)
 
 **What I wanted:** to decide which review points to take and what the six-persona results changed, then rebuild the memo once rather than in pieces.
 
@@ -714,7 +703,7 @@ It came back with suggestions and three questions. My answers: (1) the headline 
 
 ---
 
-## 22 · Claude Opus 5.5 (Claude Code + Chrome) · Prototype plan, context pack and build prompt (log 18)
+## 21 · Claude Opus 5.5 (Claude Code + Chrome) · Prototype plan, context pack and build prompt (log 18)
 
 **What I wanted:** to move to the prototype in a fresh session with no drift. I asked for a build prompt I could run separately, a folder of context files holding every decision already made, and for the objectives and outputs to be confirmed with me first. Including the LINE export in the Kit and ordering the merchants by impact were my calls.
 
@@ -726,11 +715,11 @@ Let's have a prompt I can start a new chat using that's still attached to the pr
 Please give me a comprehensive prompt for the protype, confirm with me any objectives and outputs to be created and if needed have a folder with context MDs to maximise the prototype chance of success which the prompt will call on.
 ```
 
-**What I did with it:** I confirmed the objectives: order the six merchants by impact score with Aisha flagged as showing the most features; embed the six photos; outputs are one self-contained HTML file, a README with a demo script, and a private link. Out of it came a context pack of seven files (goal and scope, flow and screens, merchant data, impact scoring, build rules, acceptance checklist, sidebar copy) and the build prompt in prompt 26, which I read through before running it. → `prototype/context/`, `prompts/prototype_session_prompt.md`
+**What I did with it:** I confirmed the objectives: order the six merchants by impact score with Aisha flagged as showing the most features; embed the six photos; outputs are one self-contained HTML file, a README with a demo script, and a private link. Out of it came a context pack of seven files (goal and scope, flow and screens, merchant data, impact scoring, build rules, acceptance checklist, sidebar copy) and the build prompt in prompt 25, which I read through before running it. → `prototype/context/`, `prompts/prototype_session_prompt.md`
 
 ---
 
-## 23 · Claude Opus 5.5 (Claude Code) · Aisha's conflict flow and the presenter sidebar (log 18b)
+## 22 · Claude Opus 5.5 (Claude Code) · Aisha's conflict flow and the presenter sidebar (log 18b)
 
 **What I wanted:** two things I'd want in the real product: a proper way for Aisha to settle the conflict that caused her Saturday, and a presenter sidebar so whoever I walk through the prototype sees what changed and why on every screen, in my voice, not marketing copy.
 
@@ -744,7 +733,7 @@ additionally we should have a running side bar which explains the changes and im
 
 ---
 
-## 24 · Claude Opus 5.5 (Claude Code) · Design brief for Google Stitch (log 18c)
+## 23 · Claude Opus 5.5 (Claude Code) · Design brief for Google Stitch (log 18c)
 
 **What I wanted:** to try Google Stitch for the screens rather than build straight from Zaapi's current look, on one condition: it had to come out more intuitive than what's there today.
 
@@ -756,7 +745,7 @@ ok i'm going to try using google stitch first through the MCP to create the UI a
 
 ---
 
-## 25 · Claude Opus 5.5 (Claude Code + Google Stitch MCP) · Screen designs from the brief (log 18d)
+## 24 · Claude Opus 5.5 (Claude Code + Google Stitch MCP) · Screen designs from the brief (log 18d)
 
 **What I wanted:** the screens generated from that brief, judged on one thing: could a merchant find their way through the new setup without help.
 
@@ -768,7 +757,7 @@ using the files for stitch in the zaapi folder, most importantly the design.md p
 
 ---
 
-## 26 · Claude Opus 5.5 (Claude Code, desktop app) · Prototype build (log 19)
+## 25 · Claude Opus 5.5 (Claude Code, desktop app) · Prototype build (log 19)
 
 **What I wanted:** the working prototype, built in a fresh session from the context pack and the Stitch screens. I'd had the build prompt written up from my brief and the decisions we'd made, read it through, and started the session with one line: "please run the prototype session prompt from the file, using all the designs brought in from stitch". The prompt it ran:
 
@@ -857,7 +846,7 @@ Once you've read everything, give me a short plan (10 lines at most), then start
 
 ---
 
-## 27 · Claude Opus 5.5 (Claude Code, desktop app) · Prototype fixes after checking it against the memo (logs 20, 20b and 21)
+## 26 · Claude Opus 5.5 (Claude Code, desktop app) · Prototype fixes after checking it against the memo (logs 20, 20b and 21)
 
 **What I wanted:** to check the prototype against the memo before anyone else saw it. I asked "ok can you now look at the prototype created and match that up to the memo. Any issues to call out?" and got seven mismatches, the big one being week-one numbers 4 to 10 times too high for each merchant's volume. Rather than fix them piecemeal I had the fixes written up as one prompt for the build session, with a method for the numbers so they'd stay consistent, and read it before running it:
 
@@ -983,7 +972,7 @@ Don't change the Thai. Add a README section, "Thai to check before the interview
 
 ---
 
-## 28 · Claude Opus 5.5 (Claude Code) · Final clarity sweep of the memo (log 22)
+## 27 · Claude Opus 5.5 (Claude Code) · Final clarity sweep of the memo (log 22)
 
 **What I wanted:** a last read of the memo as someone at Zaapi seeing it cold.
 
@@ -997,7 +986,7 @@ then, once I'd read the list of 14 and agreed with it: "please resolve".
 
 ---
 
-## 29 · Claude Fable 5.1 (Claude Code) · QA of every output and this prompt list (log 23)
+## 28 · Claude Fable 5.1 (Claude Code) · QA of every output and this prompt list (log 23)
 
 **What I wanted:** a QA pass over everything before sending, and this file. I also wanted the prompt record to be straight about what was mine and what wasn't.
 
@@ -1021,14 +1010,14 @@ Thirteen further messages were one or two lines each: answers to questions, a nu
 | 09 | Three one-line decisions on the tier model | Locked into `01_memo_outline.md`. |
 | 10 | "Include a prompt to add information for the sales periods" | Sale-period prompts added to the outline and the memo. |
 | 10a | "Do the design pass; also check the brief for any friction I've missed" | `prototype/tokens.css`, `design_system.md`, `appendix/D_brief_coverage.md`. |
-| 16 | Answers to prompt 21's three questions | Memo v3 targets and sequencing. |
+| 16 | Answers to prompt 20's three questions | Memo v3 targets and sequencing. |
 | 17 | "The testing commentary doesn't make sense" | Launch status now comes from the brief's quotes; takeaway rewritten. |
 | 18d | "Try again" after a dropped Stitch connection | Stitch run completed. |
 | 18e | "The left navigation bar doesn't have all the options the existing site has" | Full 12-item rail read from the live app and applied to all 13 designs. |
-| 19 | "Run the prototype session prompt from the file" | Launched prompt 26. |
-| 20 | "Match the prototype up to the memo. Any issues?" | The seven findings that became prompt 27. |
+| 19 | "Run the prototype session prompt from the file" | Launched prompt 25. |
+| 20 | "Match the prototype up to the memo. Any issues?" | The seven findings that became prompt 26. |
 | 20b | "Give me a complete prompt for the fixes" | `prompts/prototype_fixes_prompt.md`. |
-| 21 | "Read the prototype fixes prompt and resolve" | Launched prompt 27. |
+| 21 | "Read the prototype fixes prompt and resolve" | Launched prompt 26. |
 | 22 | "Please resolve" | The 14 clarity fixes made. |
 
-**Totals:** 29 substantive prompts (20 Claude, 8 Perplexity, 1 Claude with Google Stitch) and 13 short follow-ups, over four days (24 to 28 September 2026). The split, roughly: I set the questions, made the calls and checked the work; Claude did the long reads, the drafting to my outline and the build; Perplexity did the outside facts.
+**Totals:** 28 substantive prompts (20 Claude, 7 Perplexity, 1 Claude with Google Stitch) and 13 short follow-ups, over four days (24 to 28 September 2026). The split, roughly: I set the questions, made the calls and checked the work; Claude did the long reads, the drafting to my outline and the build; Perplexity did the outside facts.

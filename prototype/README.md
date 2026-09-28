@@ -5,12 +5,10 @@ Deliverable 2 of the take-home. It shows the memo's main change working:
 > Zaapi drafts the agent from what the merchant already has, and shows them whether it's ready before any customer sees it.
 
 - **File:** `zaapi_setup_prototype.html`, one self-contained file (about 300 KB), built 28 Sep 2026 and fixed after the memo check the same day (entry 21).
-- **Private link:** https://claude.ai/artifact/Phpqmhaiv2d9dmMaLwmqjM (private until you share it).
 
 ## How to open it
 
 - **Offline:** double-click `zaapi_setup_prototype.html`. It opens in any modern browser and makes no network requests. The CSS, the JS, the data and the six photos are all inside the file.
-- **Online:** use the private Artifact link.
 - **Size:** it's built for a laptop. It looks best at 1440×900, works at 1280×800, and nothing overflows at 1024 wide.
 
 **Demo controls** are in the dashed box at the top right. They aren't part of Zaapi.
