@@ -34,7 +34,7 @@ Fresh Laundry did **not** go live — I stopped before publishing, per the rule 
 3. A phone number to use (Thai +66 format works, or another SEA country per your preference).
 4. A password (I won't see anything sensitive if you'd rather type it in yourself — say when you're at the field and I'll pause).
 
-**Signup identity used for this run** (for my own reference, not the merchant persona): Business name "Test Business", email yumipoodleai@gmail.com, phone +65 88090860, generated password. Account itself is a shell — the *content* built inside (AI Agent knowledge/persona) is Fresh Laundry, per the prompt.
+**Signup identity used for this run** (for my own reference, not the merchant persona): Business name "Test Business", a throwaway email address and phone number, and a generated password (details kept out of this log). Account itself is a shell — the *content* built inside (AI Agent knowledge/persona) is Fresh Laundry, per the prompt.
 
 **[product]** Social proof strip on `/register` right panel lists real logos: Atelier Wen, Blackmores, Colgate-Palmolive, Fitté Lalore, Secret Lab, Unilever, Delugs, Innisfree, L'Occitane — skews beauty/lifestyle/home mid-market, consistent with the brief's SMB/mid-market SEA e-commerce framing.
 
@@ -44,7 +44,7 @@ Fresh Laundry did **not** go live — I stopped before publishing, per the rule 
 
 **[product]** Password field has live validation shown only after first submit attempt fails: "8 characters minimum / One lowercase character (a-z) / One uppercase character (A-Z) / One number" — my first generated password had no digit and was silently rejected (button stayed grey, no other error text) until I reread the checklist. **Minor friction note for the memo's texture, not a hypothesis:** the button doesn't explain *why* it's disabled until you notice the checklist below the CAPTCHA widget, easy to miss on a first pass.
 
-**[product]** After resubmitting with a valid password, redirected to `/register/verify?userId=...&email=...` — **email verification by link**, not OTP. Screen: "Please verify your email" / "We've sent an email verification link to your email: yumipoodleai@gmail.com" / "Didn't get an email? Click to resend" / "Need help? Contact us".
+**[product]** After resubmitting with a valid password, redirected to `/register/verify?userId=...&email=...` — **email verification by link**, not OTP. Screen: "Please verify your email" / "We've sent an email verification link to your email: [the signup address]" / "Didn't get an email? Click to resend" / "Need help? Contact us".
 
 **Persona lens (signup form overall, now that it's complete):**
 - **Aisha** — OK. A password-complexity error wouldn't faze her.

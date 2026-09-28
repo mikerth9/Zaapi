@@ -198,7 +198,7 @@ Against `01_memo_outline.md`. **Short answer: they close four of the six quotes,
 **Still supported:** "Deliberately not doing: mandatory scenarios". Linh shows a scenario can't fix what the agent can't see. **Not addressed, and fine to leave:** Zalo (a channel decision, not an activation fix).
 
 **Evidence gaps still open:**
-- the re-engagement emails (yumipoodleai inbox);
+- the re-engagement emails (the test account's inbox);
 - a real Shopee or TikTok connection (which would also show whether synced order history reaches the agent);
 - Live Chat Support;
 - Analyse;

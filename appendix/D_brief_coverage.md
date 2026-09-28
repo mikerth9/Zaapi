@@ -51,7 +51,7 @@
 | Brief says | Status | Evidence |
 |---|---|---|
 | Live and kept live → higher renewal | **Open** | Data only. |
-| "The ones who stall rarely come back… on their own initiative" | **Partly** | No in-product re-engagement seen: no dashboard, no nudges, no "steps left" `[product]` `[mike]`. **Not checked: emails.** The test account's inbox (yumipoodleai@gmail.com) would show whether Zaapi sends any setup nudges over the next few days. |
+| "The ones who stall rarely come back… on their own initiative" | **Partly** | No in-product re-engagement seen: no dashboard, no nudges, no "steps left" `[product]` `[mike]`. **Not checked: emails.** The test account's inbox would show whether Zaapi sends any setup nudges over the next few days. |
 | "Paying for a platform they're only half using" | **Explained** | The trial countdown and "Subscribe now" start on screen one; AI replies are billed separately as tokens, so an un-launched agent costs nothing extra, but a launched one costs per message with no cap `[product]` `[pricing]`. |
 
 ## 5. Still missing, and how to close it
